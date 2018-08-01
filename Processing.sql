@@ -42,3 +42,10 @@ update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Serang' where tujuan_ke
 update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Tangerang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kab. Pandeglang';
 update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Tangerang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kota Tangerang';
 update temp_pergerakan set tujuan_kota_kabupaten = 'Kota Serang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kab. Serang';
+
+-- Update kota from temporary table
+update proc_pergerakan
+    set asal_kota_kabupaten = (select asal_kota_kabupaten from temp_pergerakan where id = proc_pergerakan.id),
+        tujuan_kota_kabupaten = (select tujuan_kota_kabupaten from temp_pergerakan where id = proc_pergerakan.id)
+    where id in (select id from temp_pergerakan)
+;
