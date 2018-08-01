@@ -36,3 +36,5 @@ update temp_pergerakan set tujuan_kota_kabupaten = kota_tujuan
     and tujuan_kota_kabupaten <> kota_tujuan
     and (tujuan_kecamatan != 'Curug' and tujuan_kecamatan != 'Cibeber' and tujuan_kecamatan != 'Ciruas' and tujuan_kecamatan != 'Sobang')
 ;
+-- Update kota for Kecamatan Ciruas
+update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Serang' where tujuan_kecamatan = 'Ciruas' and tujuan_kelurahan = 'Citerep';
