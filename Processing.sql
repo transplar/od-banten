@@ -1,9 +1,6 @@
 -- Selecting valid pergerakan data and save it into new table
 create table proc_pergerakan as select * from pergerakan where asal_kecamatan is not null and tujuan_kecamatan is not null;
 
--- Create join data from pergerakan and responden
-create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
-
 -- Create tenporary table to validate asal kota based on asal kecamatan
 create table temp_pergerakan as
     select p.id, p.responden_id, p.asal_kelurahan, p.asal_kecamatan, p.asal_kota_kabupaten
@@ -49,3 +46,6 @@ update proc_pergerakan
         tujuan_kota_kabupaten = (select tujuan_kota_kabupaten from temp_pergerakan where id = proc_pergerakan.id)
     where id in (select id from temp_pergerakan)
 ;
+
+-- Create join data from pergerakan and responden
+create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
