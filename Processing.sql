@@ -5,17 +5,18 @@ create table proc_pergerakan as select * from pergerakan where asal_kecamatan is
 create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
 
 -- Create tenporary table to validate asal kota based on asal kecamatan
-create table temp_pergerakan as 
+create table temp_pergerakan as
     select p.id, p.responden_id, p.asal_kelurahan, p.asal_kecamatan, p.asal_kota_kabupaten
     , p.tujuan_kelurahan, p.tujuan_kecamatan, p.tujuan_kota_kabupaten
     , a.kecamatan kecamatan_asal, a.kota kota_asal
     , at.kecamatan kecamatan_tujuan, at.kota kota_tujuan
-    from proc_pergerakan p left join administrasi a on a.kecamatan = p.asal_kecamatan 
+    from proc_pergerakan p left join administrasi a on a.kecamatan = p.asal_kecamatan
     left join administrasi at on at.kecamatan = p.tujuan_kecamatan
     group by p.id
 ;
 
 -- Update nama kota based it's kecamatan
+--
 -- Update asal kota
 update temp_pergerakan set asal_kota_kabupaten = kota_asal
     where asal_kecamatan = kecamatan_asal
@@ -29,3 +30,9 @@ update temp_pergerakan set asal_kota_kabupaten = 'Kab. Tangerang' where asal_kec
 update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Cisangku';
 update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Curug';
 update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Siketug';
+-- Update tujuan kota
+update temp_pergerakan set tujuan_kota_kabupaten = kota_tujuan
+    where tujuan_kecamatan = kecamatan_tujuan
+    and tujuan_kota_kabupaten <> kota_tujuan
+    and (tujuan_kecamatan != 'Curug' and tujuan_kecamatan != 'Cibeber' and tujuan_kecamatan != 'Ciruas' and tujuan_kecamatan != 'Sobang')
+;
