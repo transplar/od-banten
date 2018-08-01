@@ -38,3 +38,7 @@ update temp_pergerakan set tujuan_kota_kabupaten = kota_tujuan
 ;
 -- Update kota for Kecamatan Ciruas
 update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Serang' where tujuan_kecamatan = 'Ciruas' and tujuan_kelurahan = 'Citerep';
+-- Update kota for Kecamatan Curug
+update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Tangerang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kab. Pandeglang';
+update temp_pergerakan set tujuan_kota_kabupaten = 'Kab. Tangerang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kota Tangerang';
+update temp_pergerakan set tujuan_kota_kabupaten = 'Kota Serang' where tujuan_kecamatan = 'Curug' and tujuan_kota_kabupaten = 'Kab. Serang';
