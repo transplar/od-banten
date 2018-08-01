@@ -22,3 +22,10 @@ update temp_pergerakan set asal_kota_kabupaten = kota_asal
     and asal_kota_kabupaten <> kota_asal
     and (asal_kecamatan != 'Curug' and asal_kecamatan != 'Cibeber' and asal_kecamatan != 'Ciruas' and asal_kecamatan != 'Sobang')
 ;
+-- Update kota for Kecamatan Curug
+update temp_pergerakan set asal_kota_kabupaten = 'Kab. Tangerang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Binong';
+update temp_pergerakan set asal_kota_kabupaten = 'Kab. Tangerang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Suka bakti';
+update temp_pergerakan set asal_kota_kabupaten = 'Kab. Tangerang' where asal_kecamatan = 'Curug' and asal_kota_kabupaten = 'Kota Tangerang'
+update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Cisangku';
+update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Curug';
+update temp_pergerakan set asal_kota_kabupaten = 'Kota Serang' where asal_kecamatan = 'Curug' and asal_kelurahan = 'Siketug';
