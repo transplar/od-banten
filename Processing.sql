@@ -14,3 +14,11 @@ create table temp_pergerakan as
     left join administrasi at on at.kecamatan = p.tujuan_kecamatan
     group by p.id
 ;
+
+-- Update nama kota based it's kecamatan
+-- Update asal kota
+update temp_pergerakan set asal_kota_kabupaten = kota_asal
+    where asal_kecamatan = kecamatan_asal
+    and asal_kota_kabupaten <> kota_asal
+    and (asal_kecamatan != 'Curug' and asal_kecamatan != 'Cibeber' and asal_kecamatan != 'Ciruas' and asal_kecamatan != 'Sobang')
+;
