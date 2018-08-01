@@ -1,3 +1,5 @@
+BEGIN TRANSACTION;
+
 -- Selecting valid pergerakan data and save it into new table
 create table proc_pergerakan as select * from pergerakan where asal_kecamatan is not null and tujuan_kecamatan is not null;
 
@@ -49,3 +51,5 @@ update proc_pergerakan
 
 -- Create join data from pergerakan and responden
 create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
+
+COMMIT;
