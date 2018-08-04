@@ -3,6 +3,9 @@ BEGIN TRANSACTION;
 -- Selecting valid pergerakan data and save it into new table
 create table proc_pergerakan as select * from pergerakan where asal_kecamatan is not null and tujuan_kecamatan is not null;
 
+-- Save invalid pergerakan data for use later
+create table no_origin as select * from pergerakan where asal_kecamatan is null or tujuan_kecamatan is null;
+
 -- Create tenporary table to validate asal kota based on asal kecamatan
 create table temp_pergerakan as
     select p.id, p.responden_id, p.asal_kelurahan, p.asal_kecamatan, p.asal_kota_kabupaten
