@@ -185,7 +185,7 @@ update proc_pergerakan set asal_kecamatan = 'Cijaku'
             where z.zona_id = 36
             group by id
             order by random()
-            limit 502/12
+            limit 502*12/100
     )
 ;
 
