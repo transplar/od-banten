@@ -208,6 +208,30 @@ update proc_pergerakan set asal_kecamatan = 'Cibeber'
             limit 1154*42/100
     )
 ;
+-- zona 38
+-- zona 39
+-- zona 40
+-- zona 41
+-- zona 42
+-- zona 43
+-- zona 44
+-- zona 45
+-- zona 46
+-- zona 47
+-- zona 48
+-- zona 49
+-- zona 51
+-- zona 52
+-- zona 53
+-- zona 54
+-- zona 55
+-- zona 56
+-- zona 57
+-- zona 58
+-- zona 59
+-- zona 60
+-- zona 61
+
 
 -- Create join data from pergerakan and responden
 create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
