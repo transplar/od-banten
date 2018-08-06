@@ -178,6 +178,17 @@ INSERT INTO zonasi_kab (kecamatan, kota, zona_id, penduduk_proporsi) VALUES ('Pa
 INSERT INTO zonasi_kab (kecamatan, kota, zona_id, penduduk_proporsi) VALUES ('Kosambi', 'Kab. Tangerang', 61, 37);
 INSERT INTO zonasi_kab (kecamatan, kota, zona_id, penduduk_proporsi) VALUES ('Teluknaga', 'Kab. Tangerang', 61, 37);
 
+-- Distribute data based on zonasi
+update proc_pergerakan set asal_kecamatan = 'Cijaku'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 36
+            group by id
+            order by random()
+            limit 502/12
+    )
+;
+
 -- Create join data from pergerakan and responden
 create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
 
