@@ -209,6 +209,24 @@ update proc_pergerakan set asal_kecamatan = 'Cibeber'
     )
 ;
 -- zona 38
+update proc_pergerakan set asal_kecamatan = 'Curugbitung'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 38 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 894*7/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Kalanganyar'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 38 and z.kota = p.asal_kota_kabupaten and z.kecamatan != 'Curugbitung'
+            group by id
+            order by random()
+            limit 894*9/100
+    )
+;
 -- zona 39
 -- zona 40
 -- zona 41
