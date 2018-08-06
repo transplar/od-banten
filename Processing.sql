@@ -228,6 +228,24 @@ update proc_pergerakan set asal_kecamatan = 'Kalanganyar'
     )
 ;
 -- zona 39
+update proc_pergerakan set asal_kecamatan = 'Leuwidamar'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 39 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 555*42/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Bojongmanik'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 39 and z.kota = p.asal_kota_kabupaten and z.kecamatan != 'Leuwidamar'
+            group by id
+            order by random()
+            limit 555*18/100
+    )
+;
 -- zona 40
 -- zona 41
 -- zona 42
