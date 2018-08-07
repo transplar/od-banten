@@ -293,6 +293,33 @@ update proc_pergerakan set asal_kecamatan = 'Sobang'
     )
 ;
 -- zona 41
+update proc_pergerakan set asal_kecamatan = 'Cigemblong'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 41 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 518*18/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Cirinten'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 41 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 518*23/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Panggarangan'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 41 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 518*32/100
+    )
+;
 -- zona 42
 -- zona 43
 -- zona 44
