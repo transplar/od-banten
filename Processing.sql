@@ -560,6 +560,51 @@ update proc_pergerakan set asal_kecamatan = 'Karangtanjung'
     )
 ;
 -- zona 46
+update proc_pergerakan set asal_kecamatan = 'Bojong'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 46 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 104*17/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Saketi'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 46 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 104*22/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Cipeucang'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 46 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 104*14/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Patia'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 46 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 104*14/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Cisata'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 46 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 104*12/100
+    )
+;
 -- zona 47
 -- zona 48
 -- zona 49
