@@ -202,7 +202,7 @@ update proc_pergerakan set asal_kecamatan = 'Cilograng'
 update proc_pergerakan set asal_kecamatan = 'Cibeber'
     where id in (
         select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
-            where z.zona_id = 37 and z.kota = p.asal_kota_kabupaten and z.kecamatan != 'Cilograng'
+            where z.zona_id = 37 and z.kota = p.asal_kota_kabupaten
             group by id
             order by random()
             limit 1154*42/100
