@@ -423,6 +423,69 @@ update proc_pergerakan set asal_kecamatan = 'Sindangresmi'
     )
 ;
 -- zona 44
+update proc_pergerakan set asal_kecamatan = 'Jiput'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*9/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Menes'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*12/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Mandalawangi'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*16/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Pagelaran'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*11/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Carita'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*11/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Cikedal'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*10/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Pulosari'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 296*9/100
+    )
+;
 -- zona 45
 -- zona 46
 -- zona 47
