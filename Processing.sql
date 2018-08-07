@@ -859,8 +859,35 @@ update proc_pergerakan set asal_kecamatan = 'Jambe'
             limit 707*15/100
     )
 ;
--- zona 59
+-- zona 59 (NO NEED)
 -- zona 60
+update proc_pergerakan set asal_kecamatan = 'Cisauk'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 60 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 747*15/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Pagedangan'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 60 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 747*21/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Legok'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 60 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 747*22/100
+    )
+;
 -- zona 61
 
 
