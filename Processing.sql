@@ -320,6 +320,34 @@ update proc_pergerakan set asal_kecamatan = 'Panggarangan'
             limit 518*32/100
     )
 ;
+-- Transfer data to other zona
+update proc_pergerakan set asal_kecamatan = 'Panimbang'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 44 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Munjul'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 45 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Picung'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 45 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 100
+    )
+;
 -- zona 42
 -- zona 43
 -- zona 44
