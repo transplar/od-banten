@@ -803,6 +803,42 @@ update proc_pergerakan set asal_kecamatan = 'Kemiri'
     )
 ;
 -- zona 56
+update proc_pergerakan set asal_kecamatan = 'Sukamulya'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 56 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 522*23/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Kresek'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 56 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 522*23/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Gunung Kaler'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 56 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 522*18/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Mekarbaru'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 56 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 522*13/100
+    )
+;
 -- zona 57
 -- zona 58
 -- zona 59
