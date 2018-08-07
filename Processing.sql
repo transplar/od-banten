@@ -196,7 +196,7 @@ update proc_pergerakan set asal_kecamatan = 'Cilograng'
             where z.zona_id = 37 and z.kota = p.asal_kota_kabupaten
             group by id
             order by random()
-            limit 1154*25/100
+            limit 416*25/100
     )
 ;
 update proc_pergerakan set asal_kecamatan = 'Cibeber'
@@ -205,7 +205,7 @@ update proc_pergerakan set asal_kecamatan = 'Cibeber'
             where z.zona_id = 37 and z.kota = p.asal_kota_kabupaten
             group by id
             order by random()
-            limit 1154*42/100
+            limit 416*42/100
     )
 ;
 -- zona 38
