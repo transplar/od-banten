@@ -376,6 +376,15 @@ update proc_pergerakan set asal_kecamatan = 'Cigeulis'
             limit 185*12/100
     )
 ;
+update proc_pergerakan set asal_kecamatan = 'Cimanggu'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 42 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 185*14/100
+    )
+;
 update proc_pergerakan set asal_kecamatan = 'Sobang'
     where id in (
         select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
@@ -392,6 +401,15 @@ update proc_pergerakan set asal_kecamatan = 'Sukaresmi'
             group by id
             order by random()
             limit 185*12/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Sumur'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 42 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 185*8/100
     )
 ;
 -- zona 43
