@@ -889,7 +889,24 @@ update proc_pergerakan set asal_kecamatan = 'Legok'
     )
 ;
 -- zona 61
-
+update proc_pergerakan set asal_kecamatan = 'Pakuhaji'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 61 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 366*26/100
+    )
+;
+update proc_pergerakan set asal_kecamatan = 'Kosambi'
+    where id in (
+        select p.id from proc_pergerakan p left join zonasi_kab z on z.kecamatan = p.asal_kecamatan
+            where z.zona_id = 61 and z.kota = p.asal_kota_kabupaten
+            group by id
+            order by random()
+            limit 366*36/100
+    )
+;
 
 -- Create join data from pergerakan and responden
 create table proc_data as select * from proc_pergerakan p left join responden r on r.id = p.responden_id;
