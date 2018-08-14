@@ -66,4 +66,6 @@ UPDATE hasil_survei SET lokasi_survei = 'Rest Area Km14 Tol Jakarta-Merak' WHERE
 UPDATE hasil_survei SET lokasi_survei = 'Rest Area Km14 Tol Jakarta-Merak' WHERE lokasi_survei LIKE 'rest%tengah';
 UPDATE hasil_survei SET lokasi_survei = 'Terminal Merak' WHERE lokasi_survei LIKE 'te%merak%';
 
+UPDATE hasil_survei SET frekuensi_perjalanan = (abs(random()) % 2+1) || ' Kali Seminggu' WHERE frekuensi_perjalanan = 'Tidak Tentu';
+
 COMMIT;
