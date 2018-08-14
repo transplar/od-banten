@@ -56,5 +56,7 @@ FROM sqlitestudio_temp_table;
 DROP TABLE sqlitestudio_temp_table;
 
 UPDATE hasil_survei SET kode_pergerakan = cast(kode_pergerakan AS integer) WHERE 1;
+UPDATE hasil_survei SET kode_pergerakan = 1 WHERE kode_pergerakan = 11;
+UPDATE hasil_survei SET kode_pergerakan = 2 WHERE kode_pergerakan = 22;
 
 COMMIT;
