@@ -61,4 +61,9 @@ UPDATE hasil_survei SET kode_pergerakan = 2 WHERE kode_pergerakan = 22;
 
 CREATE TABLE jenis_pergerakan AS SELECT kode_pergerakan kode, jenis_pergerakan FROM hasil_survei GROUP BY kode_pergerakan;
 
+UPDATE hasil_survei SET lokasi_survei = 'Pelabuhan Merak' WHERE lokasi_survei LIKE 'Pe%Merak' OR lokasi_survei LIKE 'Pelabuhan%';
+UPDATE hasil_survei SET lokasi_survei = 'Rest Area Km14 Tol Jakarta-Merak' WHERE lokasi_survei LIKE '%km%14%';
+UPDATE hasil_survei SET lokasi_survei = 'Rest Area Km14 Tol Jakarta-Merak' WHERE lokasi_survei LIKE 'rest%tengah';
+UPDATE hasil_survei SET lokasi_survei = 'Terminal Merak' WHERE lokasi_survei LIKE 'te%merak%';
+
 COMMIT;
