@@ -59,4 +59,6 @@ UPDATE hasil_survei SET kode_pergerakan = cast(kode_pergerakan AS integer) WHERE
 UPDATE hasil_survei SET kode_pergerakan = 1 WHERE kode_pergerakan = 11;
 UPDATE hasil_survei SET kode_pergerakan = 2 WHERE kode_pergerakan = 22;
 
+CREATE TABLE jenis_pergerakan AS SELECT kode_pergerakan kode, jenis_pergerakan FROM hasil_survei GROUP BY kode_pergerakan;
+
 COMMIT;
